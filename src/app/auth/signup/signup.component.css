@@ -1,30 +1,3 @@
-#container {
-  display: flex;
-  width: 100%;
-  height: 700px;
-  flex-direction: column;
-  justify-content: flex-start;
-  border: 1px solid black;
-  align-items: center;
-  flex-direction: row;
-}
-
-.child {
-  width: 200px;
-  height: 200px;
-}
-
-#child1 {
-  /* flex: 2; */
-  background-color: red;
-}
-
-#child2 {
-  /* flex: 1; */
-  background-color: blue;
-}
-
-#child3 {
-  /* flex: 1; */
-  background-color: yellow;
+mat-form-field{
+    width: 300px;
 }
