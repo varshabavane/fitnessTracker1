@@ -26,6 +26,11 @@
       <mat-hint align="end">{{pwInput.value?.length}} / 6</mat-hint>
       <mat-error>Has to be at least 6 characters long</mat-error>
     </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Your Birthdate" [matDatepicker]="datePicker">
+      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
     <button type="submit" mat-raised-button color="primary">Submit</button>
   </form>
 </section>
