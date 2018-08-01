@@ -1,9 +1,25 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation">
+  <mat-sidenav #sidenav role="navigation" (click)="sidenav.close()">
     <mat-nav-list>
-      <a routerLink="/signup">SignUp</a>
-      <a routerLink="/login">Login</a>
-      <a routerLink="/training">Training</a>
+      <a mat-list-item routerLink="/signup">
+        <mat-icon>face</mat-icon>
+        <span class="nav-caption">Signup</span>
+      </a>
+      <a mat-list-item routerLink="/login">
+        <mat-icon>account_circle</mat-icon>
+        <span class="nav-caption">Login</span>
+      </a>
+      <a mat-list-item routerLink="/training">
+        <mat-icon>fitness_center</mat-icon>
+        <span class="nav-caption">Training</span>
+      </a>
+      <mat-list-item>
+        <button mat-icon-button>
+          <mat-icon>eject</mat-icon>
+          <span class="nav-caption">Logout</span>
+        </button>
+      </mat-list-item>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
