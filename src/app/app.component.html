@@ -1,6 +1,10 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation">
-    <p>I M the side nav</p>
+    <mat-nav-list>
+      <a routerLink="/signup">SignUp</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/training">Training</a>
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -9,12 +13,20 @@
           <mat-icon>menu</mat-icon>
         </button>
       </div>
-      <div><a routerLink="/">Logo</a></div>
+      <div>
+        <a routerLink="/">Logo</a>
+      </div>
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="10px" class="navigationItems">
-          <li><a routerLink="/signup">SignUp</a></li>
-          <li><a routerLink="/login">Login</a></li>
-          <li><a routerLink="/training">Training</a></li>
+          <li>
+            <a routerLink="/signup">SignUp</a>
+          </li>
+          <li>
+            <a routerLink="/login">Login</a>
+          </li>
+          <li>
+            <a routerLink="/training">Training</a>
+          </li>
         </ul>
       </div>
     </mat-toolbar>
