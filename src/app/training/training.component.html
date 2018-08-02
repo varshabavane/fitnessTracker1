@@ -2,4 +2,4 @@
   <mat-tab label="New Exercise"><app-newtraining (trainingStart)="ongoingTraining = true"></app-newtraining></mat-tab>
   <mat-tab label="Past Exercise"><app-pasttraining></app-pasttraining></mat-tab>
 </mat-tab-group>
-<app-current-training *ngIf="ongoingTraining"></app-current-training>
+<app-current-training *ngIf="ongoingTraining" (trainingExit)="ongoingTraining = false"></app-current-training>
