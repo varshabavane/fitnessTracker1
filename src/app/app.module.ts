@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -15,7 +15,7 @@ import { PasttrainingComponent } from './training/pasttraining/pasttraining.comp
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
-
+import { StopTrainingComponent } from './training/current-training/stop-training.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { SidenavComponent } from './navigation/sidenav/sidenav.component';
     PasttrainingComponent,
     WelcomeComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    StopTrainingComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +39,7 @@ import { SidenavComponent } from './navigation/sidenav/sidenav.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [StopTrainingComponent]
 })
 export class AppModule { }
