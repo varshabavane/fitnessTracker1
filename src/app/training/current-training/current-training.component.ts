@@ -10,7 +10,7 @@ export class CurrentTrainingComponent implements OnInit {
 
   @Output() trainingExit = new EventEmitter();
   progress = 0;
-  timer: number;
+  timer;
   constructor(private dialog: MatDialog) { }
 
   ngOnInit() {
