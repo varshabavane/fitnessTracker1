@@ -22,5 +22,13 @@ export class AuthService{
         this.user = null;
     }
 
-    
+    getUser(){
+        return { ...this.user};
+    }
+
+    isAuth(){
+        return this.user != null;
+    }
+
+
 }
