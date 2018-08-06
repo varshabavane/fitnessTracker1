@@ -37,7 +37,7 @@ export class TrainingService {
       duration: this.runningExercise.duration * (progress / 100),
       calories: this.runningExercise.calories * (progress / 100),
       date: new Date(),
-      state: "completed"
+      state: "cancelled"
     });
     this.runningExercise = null;
     this.exerciseChanged.next(null);
