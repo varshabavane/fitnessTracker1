@@ -12,7 +12,7 @@ export class TrainingService {
   private runningExercise: Exercise;
 
   getAvailableExercises() {
-    return this.availableExercises;
+    return this.availableExercises.slice();
   }
 
   startExercise(selectedId: string) {
