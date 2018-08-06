@@ -1,3 +1,6 @@
-<p>
-  pasttraining works!
-</p>
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.d | date}}</mat-cell>
+  </ng-container>
+</mat-table>
