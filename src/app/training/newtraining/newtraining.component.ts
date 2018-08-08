@@ -19,22 +19,7 @@ export class NewtrainingComponent implements OnInit {
 
   ngOnInit() {
     // this.exercises = this.trainingExercise.getAvailableExercises();
-    this.exercises = this.db
-      .collection("AvailableExercises")
-      .snapshotChanges()
-      .pipe(
-        map(docArray => {
-          return docArray.map(doc => {
-            return {
-              id: doc.payload.doc.id,
-              // ...doc.payload.doc.data()
-              name: doc.payload.doc.data().name,
-              duration: doc.payload.doc.data().duration,
-              calories: doc.payload.doc.data().calories
-            };
-          });
-        })
-      );
+    
   }
 
   onStartTraining(form: NgForm) {
