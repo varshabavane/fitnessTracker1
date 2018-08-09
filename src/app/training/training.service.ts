@@ -23,7 +23,6 @@ export class TrainingService {
           return docArray.map(doc => {
             const id = doc.payload.doc.id;
             const exercise = doc.payload.doc.data() as Exercise;
-            console.log(exercise.name);
             return {
               id: id,
               name: exercise.name,
