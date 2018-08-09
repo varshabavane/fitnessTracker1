@@ -33,9 +33,8 @@ export class TrainingService {
           });
         })
       )
-      .subscribe((aexercises: Exercise[]) => {
-        console.log(aexercises);
-        this.availableExercises = aexercises;
+      .subscribe((exercises: Exercise[]) => {
+        this.availableExercises = exercises;
         this.exercisesChanged.next([...this.availableExercises]);
       });
   }
