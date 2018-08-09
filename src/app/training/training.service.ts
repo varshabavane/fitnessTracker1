@@ -6,7 +6,7 @@ import { map } from "rxjs/operators";
 @Injectable()
 export class TrainingService {
   exerciseChanged = new Subject<Exercise>();
-  exercisesChanged = new Subject<Exercise>();
+  exercisesChanged = new Subject<Exercise[]>();
   private availableExercises: Exercise[] = [];
 
   private runningExercise: Exercise;
@@ -21,19 +21,22 @@ export class TrainingService {
       .pipe(
         map(docArray => {
           return docArray.map(doc => {
+            const id = doc.payload.doc.id;
+            const exercise = doc.payload.doc.data() as Exercise;
+            console.log(exercise.name);
             return {
-              id: doc.payload.doc.id,
-              // ...doc.payload.doc.data()
-              name: doc.payload.doc.data().name,
-              duration: doc.payload.doc.data().duration,
-              calories: doc.payload.doc.data().calories
+              id: id,
+              name: exercise.name,
+              duration: exercise.duration,
+              calories: exercise.calories
             };
           });
         })
       )
-      .subscribe((aexercises: Exercise) => {
+      .subscribe((aexercises: Exercise[]) => {
+        console.log(aexercises);
         this.availableExercises = aexercises;
-        this.exercisesChanged.next(...this.availableExercises);
+        this.exercisesChanged.next([...this.availableExercises]);
       });
   }
 
