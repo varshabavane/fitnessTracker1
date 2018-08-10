@@ -5,12 +5,17 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 
 import { AngularFireAuth } from "angularfire2/auth";
+import { TrainingService } from "../training/training.service";
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
   private isAuthenticated = false;
 
-  constructor(private router: Router, private afAuth: AngularFireAuth) {}
+  constructor(
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private traningService: TrainingService
+  ) {}
 
   registeredUser(authData: AuthData) {
     this.afAuth.auth
@@ -52,6 +57,7 @@ export class AuthService {
 
   logout() {
     // this.user = null;
+    this.traningService.cancelSubscription();
     this.afAuth.auth.signOut();
     this.authChange.next(false);
     this.router.navigate(["/login"]);
