@@ -70,14 +70,9 @@ export class AuthService {
     // this.authSuccessfully();
   }
 
-  // logout() {
-  //   // this.user = null;
-  //   this.traningService.cancelSubscription();
-  //   this.afAuth.auth.signOut();
-  //   this.authChange.next(false);
-  //   this.router.navigate(["/login"]);
-  //   this.isAuthenticated = false;
-  // }
+  logout() {
+    this.afAuth.auth.signOut();
+  }
 
   isAuth() {
     return this.isAuthenticated;
