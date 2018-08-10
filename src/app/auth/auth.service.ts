@@ -10,15 +10,26 @@ export class AuthService {
   authChange = new Subject<boolean>();
   private user: User;
 
-  constructor(private router: Router) {}
-  registeredUser(authData: AuthData) {
-    this.user = {
-      email: authData.email,
-      userId: Math.round(Math.random() * 10000).toString()
-    };
+  constructor(private router: Router, private afAuth: AngularFireAuth) {}
 
-    this.authChange.next(true);
-    this.authSuccessfully();
+  registeredUser(authData: AuthData) {
+    this.afAuth.auth
+      .createUserWithEmailAndPassword(authData.email, authData.password)
+      .then(result => {
+        console.log(result);
+        this.authSuccessfully();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    // this.user = {
+    //   email: authData.email,
+    //   userId: Math.round(Math.random() * 10000).toString()
+    // };
+
+    // this.authChange.next(true);
+    // this.authSuccessfully();
   }
 
   login(authData: AuthData) {
