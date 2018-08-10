@@ -78,9 +78,4 @@ export class AuthService {
     return this.isAuthenticated;
   }
 
-  // private authSuccessfully() {
-  //   this.isAuthenticated = true;
-  //   this.authChange.next(true);
-  //   this.router.navigate(["/training"]);
-  // }
 }
