@@ -3,6 +3,8 @@ import { User } from "./user.model";
 import { AuthData } from "./auth-data.model";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+
+import { AngularFireAuth } from "angularfire2/auth";
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
@@ -42,7 +44,7 @@ export class AuthService {
     return this.user != null;
   }
 
-  private authSuccessfully(){
+  private authSuccessfully() {
     this.router.navigate(["/training"]);
   }
 }
