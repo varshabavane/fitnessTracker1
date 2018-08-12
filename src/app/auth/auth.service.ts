@@ -37,19 +37,10 @@ export class AuthService {
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log(result);
-        // this.authSuccessfully();
       })
       .catch(error => {
         console.log(error);
       });
-
-    // this.user = {
-    //   email: authData.email,
-    //   userId: Math.round(Math.random() * 10000).toString()
-    // };
-
-    // this.authChange.next(true);
-    // this.authSuccessfully();
   }
 
   login(authData: AuthData) {
@@ -57,17 +48,11 @@ export class AuthService {
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         console.log(result);
-        // this.authSuccessfully();
       })
       .catch(error => {
         console.log(error);
       });
-    // this.user = {
-    //   email: authData.email,
-    //   userId: Math.round(Math.random() * 10000).toString()
-    // };
-    // this.authChange.next(true);
-    // this.authSuccessfully();
+   
   }
 
   logout() {
