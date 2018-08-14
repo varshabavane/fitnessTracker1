@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MaterialModule } from "./material.module";
 import { AppRoutingModule } from "./app-routing.module";
-import { SignupComponent } from "./auth/signup/signup.component";
-import { LoginComponent } from "./auth/login/login.component";
 import { TrainingComponent } from "./training/training.component";
 import { CurrentTrainingComponent } from "./training/current-training/current-training.component";
 import { NewtrainingComponent } from "./training/newtraining/newtraining.component";
@@ -25,11 +23,11 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 /* envt */
 import { environment } from "../environments/environment";
 import { UIService } from "./shared/ui.service";
+import { AuthModule } from "./auth/auth.module";
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
-    LoginComponent,
+    
     TrainingComponent,
     CurrentTrainingComponent,
     NewtrainingComponent,
@@ -46,6 +44,7 @@ import { UIService } from "./shared/ui.service";
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
+    AuthModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
