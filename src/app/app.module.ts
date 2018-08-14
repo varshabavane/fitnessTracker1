@@ -5,10 +5,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MaterialModule } from "./material.module";
 import { AppRoutingModule } from "./app-routing.module";
-import { TrainingComponent } from "./training/training.component";
-import { CurrentTrainingComponent } from "./training/current-training/current-training.component";
-import { NewtrainingComponent } from "./training/newtraining/newtraining.component";
-import { PasttrainingComponent } from "./training/pasttraining/pasttraining.component";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { HeaderComponent } from "./navigation/header/header.component";
 import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
@@ -18,22 +14,18 @@ import { TrainingService } from "./training/training.service";
 /* angular fire module for firebase connectivity */
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
-import { AngularFireAuthModule } from "angularfire2/auth";
 /* envt */
 import { environment } from "../environments/environment";
 import { UIService } from "./shared/ui.service";
 import { AuthModule } from "./auth/auth.module";
+import { SharedModule } from "./shared/shared.module";
+import { TrainingModule } from "./training/training.module";
 @NgModule({
   declarations: [
     AppComponent,
-    TrainingComponent,
-    CurrentTrainingComponent,
-    NewtrainingComponent,
-    PasttrainingComponent,
     WelcomeComponent,
     HeaderComponent,
-    SidenavComponent,
-    StopTrainingComponent
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +36,8 @@ import { AuthModule } from "./auth/auth.module";
     AuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    SharedModule,
+    TrainingModule
   ],
   providers: [AuthService, TrainingService, UIService],
   bootstrap: [AppComponent],
