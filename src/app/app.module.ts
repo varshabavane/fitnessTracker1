@@ -8,7 +8,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { HeaderComponent } from "./navigation/header/header.component";
 import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
-import { StopTrainingComponent } from "./training/current-training/stop-training.component";
 import { AuthService } from "./auth/auth.service";
 import { TrainingService } from "./training/training.service";
 /* angular fire module for firebase connectivity */
@@ -36,10 +35,9 @@ import { TrainingModule } from "./training/training.module";
     AuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [AuthService, TrainingService, UIService],
-  bootstrap: [AppComponent],
-  entryComponents: [StopTrainingComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

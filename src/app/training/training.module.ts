@@ -16,6 +16,5 @@ import { PasttrainingComponent } from "./pasttraining/pasttraining.component";
     StopTrainingComponent
   ],
   imports: [SharedModule, TrainingRoutingModule],
-  entryComponents: [StopTrainingComponent]
 })
 export class TrainingModule {}
