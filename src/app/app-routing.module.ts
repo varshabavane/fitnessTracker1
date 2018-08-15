@@ -2,7 +2,6 @@ import { NgModule } from "../../node_modules/@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { AuthGuard } from "./auth/auth.guard";
-
 const routes: Routes = [
   { path: "", component: WelcomeComponent },
   {
