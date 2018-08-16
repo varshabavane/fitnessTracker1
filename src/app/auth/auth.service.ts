@@ -39,15 +39,18 @@ export class AuthService {
   }
 
   registeredUser(authData: AuthData) {
-    this.uiService.loadingStateChanged.next(true);
+    // this.uiService.loadingStateChanged.next(true);
+    this.store.dispatch({ type: "START_LOADING" });
     this.afAuth.auth
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        this.uiService.loadingStateChanged.next(false);
+        // this.uiService.loadingStateChanged.next(false);
+        this.store.dispatch({ type: "STOP_LOADING" });
         console.log(result);
       })
       .catch(error => {
-        this.uiService.loadingStateChanged.next(false);
+        // this.uiService.loadingStateChanged.next(false);
+        this.store.dispatch({ type: "STOP_LOADING" });
         this.uiService.showSnackbar(error.message, null, 3000);
         console.log(error);
       });
@@ -58,11 +61,13 @@ export class AuthService {
     this.afAuth.auth
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        this.uiService.loadingStateChanged.next(false);
+        // this.uiService.loadingStateChanged.next(false);
+        this.store.dispatch({ type: "STOP_LOADING" });
         console.log(result);
       })
       .catch(error => {
-        this.uiService.loadingStateChanged.next(false);
+        // this.uiService.loadingStateChanged.next(false);
+        this.store.dispatch({ type: "STOP_LOADING" });
         this.uiService.showSnackbar(error.message, null, 3000);
         console.log(error);
       });
