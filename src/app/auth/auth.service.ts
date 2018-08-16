@@ -7,6 +7,9 @@ import { Router } from "@angular/router";
 import { AngularFireAuth } from "angularfire2/auth";
 import { TrainingService } from "../training/training.service";
 import { UIService } from "../shared/ui.service";
+import { Store } from "@ngrx/store";
+import * as fromApp from "../app.reducer";
+
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
@@ -16,7 +19,8 @@ export class AuthService {
     private router: Router,
     private afAuth: AngularFireAuth,
     private traningService: TrainingService,
-    private uiService: UIService
+    private uiService: UIService,
+    private store: Store<{ ui: fromApp.State }>
   ) {}
 
   initAuthListener() {
