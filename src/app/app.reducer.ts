@@ -12,5 +12,13 @@ export function appReducer(state, action) {
       return {
         isLoading: true
       };
+
+    case "STOP_LOADING":
+      return {
+        isLoading: false
+      };
+
+    default:
+      return state;
   }
 }
