@@ -1,5 +1,5 @@
 import { Subject } from "rxjs";
-import { User } from "./user.model";
+// import { User } from "./user.model";
 import { AuthData } from "./auth-data.model";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
@@ -10,10 +10,11 @@ import { UIService } from "../shared/ui.service";
 import { Store } from "@ngrx/store";
 import * as fromRoot from "../app.reducer";
 import * as UI from "../shared/ui.action";
+import * as Auth from "./auth.actions";
 @Injectable()
 export class AuthService {
-  authChange = new Subject<boolean>();
-  private isAuthenticated = false;
+  // authChange = new Subject<boolean>();
+  // private isAuthenticated = false;
 
   constructor(
     private router: Router,
@@ -26,14 +27,13 @@ export class AuthService {
   initAuthListener() {
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        this.isAuthenticated = true;
-        this.authChange.next(true);
+        this.store.dispatch(new Auth.SetAuthenticated());
         this.router.navigate(["/training"]);
       } else {
         this.traningService.cancelSubscription();
-        this.authChange.next(false);
+        this.store.dispatch(new Auth.SetUnAuthenticated());
         this.router.navigate(["/login"]);
-        this.isAuthenticated = false;
+        // this.isAuthenticated = false;
       }
     });
   }
@@ -77,7 +77,7 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
 
-  isAuth() {
-    return this.isAuthenticated;
-  }
+  // isAuth() {
+  //   return this.isAuthenticated;
+  // }
 }
