@@ -1,4 +1,4 @@
-import { Subject } from "rxjs";
+// import { Subject } from "rxjs";
 // import { User } from "./user.model";
 import { AuthData } from "./auth-data.model";
 import { Injectable } from "@angular/core";
@@ -57,7 +57,8 @@ export class AuthService {
   }
 
   login(authData: AuthData) {
-    this.uiService.loadingStateChanged.next(true);
+    // this.uiService.loadingStateChanged.next(true);
+    this.store.dispatch(new UI.StartLoading());
     this.afAuth.auth
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {

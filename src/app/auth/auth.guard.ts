@@ -17,11 +17,11 @@ import { Observable } from "rxjs";
 export class AuthGuard implements CanActivate, CanLoad {
   constructor(private store: Store<fromRoot.State>, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):Observable<any> {
     return this.store.select(fromRoot.getIsAuth).pipe(take(1));
   }
 
-  canLoad(route: Route) {
+  canLoad(route: Route):Observable<any> {
     return this.store.select(fromRoot.getIsAuth).pipe(take(1));
   }
 }
