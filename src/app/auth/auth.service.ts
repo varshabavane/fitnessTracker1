@@ -45,6 +45,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         // this.uiService.loadingStateChanged.next(false);
+        
         this.store.dispatch(new UI.StopLoading());
         console.log(result);
       })
@@ -63,6 +64,9 @@ export class AuthService {
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
         // this.uiService.loadingStateChanged.next(false);
+        console.log(
+          "Haelo UI Stop Loading: " + this.store.dispatch(new UI.StopLoading())
+        );
         this.store.dispatch(new UI.StopLoading());
         console.log(result);
       })

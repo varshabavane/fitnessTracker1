@@ -13,7 +13,7 @@ import * as fromRoot from "../../app.reducer";
 export class HeaderComponent implements OnInit {
   @Output()
   sidenavToggle = new EventEmitter<void>();
-  isAuth$: Observable<void>;
+  isAuth$: Observable<any>;
   authSubscription: Subscription;
 
   constructor(
@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isAuth$ = this.store.select(fromRoot.getIsAuth);
+    console.log(this.isAuth$)
   }
   onToggleSideNav() {
     this.sidenavToggle.emit();

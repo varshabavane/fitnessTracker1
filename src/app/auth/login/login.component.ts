@@ -14,7 +14,7 @@ import { map } from "rxjs/operators";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  isLoading$: Observable<void>;
+  isLoading$: Observable<any>;
   // private loadingSubs: Subscription;
 
   constructor(
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   /* REactive Form approach */
   ngOnInit() {
     this.isLoading$ = this.store.select(fromRoot.getIsLoading);
-    
+    console.log(this.isLoading$);
     this.loginForm = new FormGroup({
       email: new FormControl("", {
         validators: [Validators.required, Validators.email]
