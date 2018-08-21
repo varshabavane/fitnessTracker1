@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isAuth$ = this.store.select(fromRoot.getIsAuth);
-    console.log(this.isAuth$)
   }
   onToggleSideNav() {
     this.sidenavToggle.emit();

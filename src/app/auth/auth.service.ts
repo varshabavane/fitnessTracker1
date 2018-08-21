@@ -13,8 +13,6 @@ import * as UI from "../shared/ui.action";
 import * as Auth from "./auth.actions";
 @Injectable()
 export class AuthService {
-  // authChange = new Subject<boolean>();
-  // private isAuthenticated = false;
 
   constructor(
     private router: Router,
@@ -33,56 +31,37 @@ export class AuthService {
         this.traningService.cancelSubscription();
         this.store.dispatch(new Auth.SetUnAuthenticated());
         this.router.navigate(["/login"]);
-        // this.isAuthenticated = false;
       }
     });
   }
 
   registeredUser(authData: AuthData) {
-    // this.uiService.loadingStateChanged.next(true);
     this.store.dispatch(new UI.StartLoading());
     this.afAuth.auth
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        // this.uiService.loadingStateChanged.next(false);
-        
         this.store.dispatch(new UI.StopLoading());
-        console.log(result);
       })
       .catch(error => {
-        // this.uiService.loadingStateChanged.next(false);
         this.store.dispatch(new UI.StopLoading());
         this.uiService.showSnackbar(error.message, null, 3000);
-        console.log(error);
       });
   }
 
   login(authData: AuthData) {
-    // this.uiService.loadingStateChanged.next(true);
     this.store.dispatch(new UI.StartLoading());
     this.afAuth.auth
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        // this.uiService.loadingStateChanged.next(false);
-        console.log(
-          "Haelo UI Stop Loading: " + this.store.dispatch(new UI.StopLoading())
-        );
         this.store.dispatch(new UI.StopLoading());
-        console.log(result);
       })
       .catch(error => {
-        // this.uiService.loadingStateChanged.next(false);
         this.store.dispatch(new UI.StopLoading());
         this.uiService.showSnackbar(error.message, null, 3000);
-        console.log(error);
       });
   }
 
   logout() {
     this.afAuth.auth.signOut();
   }
-
-  // isAuth() {
-  //   return this.isAuthenticated;
-  // }
 }
