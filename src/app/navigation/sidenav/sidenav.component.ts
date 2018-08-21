@@ -12,7 +12,7 @@ import * as fromRoot from "../../app.reducer";
 export class SidenavComponent implements OnInit {
   @Output()
   closeSideNav = new EventEmitter<void>();
-  isAuth$:Observable<void>;
+  isAuth$:Observable<boolean>;
   authSubscription: Subscription;
   constructor(private authService: AuthService, private store: Store<fromRoot.State>) {}
 
