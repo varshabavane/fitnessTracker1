@@ -13,7 +13,7 @@ import * as fromRoot from "../../app.reducer";
 export class HeaderComponent implements OnInit {
   @Output()
   sidenavToggle = new EventEmitter<void>();
-  isAuth$: Observable<any>;
+  isAuth$: Observable<boolean>;
   authSubscription: Subscription;
 
   constructor(

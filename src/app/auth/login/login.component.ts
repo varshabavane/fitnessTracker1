@@ -14,7 +14,7 @@ import { map } from "rxjs/operators";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  isLoading$: Observable<any>;
+  isLoading$: Observable<boolean>;
   // private loadingSubs: Subscription;
 
   constructor(
