@@ -14,10 +14,7 @@ import * as fromRoot from "../../app.reducer";
 })
 export class NewtrainingComponent implements OnInit {
   isLoading$: Observable<boolean>;
-  private loadingSubs: Subscription;
-
   exercises$: Observable<Exercise[]>;
-  exerciseSubscription: Subscription;
 
   constructor(
     private trainingExercise: TrainingService,
@@ -26,11 +23,6 @@ export class NewtrainingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.loadingSubs = this.uiService.loadingStateChanged.subscribe(
-    //   isLoading => {
-    //     this.isLoading = isLoading;
-    //   }
-    // );
     this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     this.exercises$ = this.store.select(fromTraining.getAvailableTrainings);
     this.fetchExercises();
