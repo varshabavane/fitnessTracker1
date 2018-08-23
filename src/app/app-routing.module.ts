@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: "training",
     loadChildren: './training/training.module#TrainingModule',
-    canLoad: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 
