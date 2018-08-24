@@ -84,7 +84,7 @@ export class TrainingService {
           duration: ex.duration * (progress / 100),
           calories: ex.calories * (progress / 100),
           date: new Date(),
-          state: "completed"
+          state: "cancelled"
         });
         this.store.dispatch(new Training.StopTraining());
       });
@@ -96,7 +96,6 @@ export class TrainingService {
         .collection("finishedExercise")
         .valueChanges()
         .subscribe((exercises: Exercise[]) => {
-          // this.finishedExercisesChanged.next(exercises);
           this.store.dispatch(new Training.SetFinishedTranings(exercises));
         })
     );
