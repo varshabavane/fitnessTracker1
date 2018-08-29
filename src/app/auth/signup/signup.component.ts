@@ -13,7 +13,7 @@ import { DateAdapter } from "@angular/material";
   styleUrls: ["./signup.component.css"]
 })
 export class SignupComponent implements OnInit {
-  maxDate: Date;
+  maxDate = new Date();
   isLoading$: Observable<boolean>;
 
   constructor(
@@ -26,13 +26,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading$ = this.store.select(fromRoot.getIsLoading);
-    this.maxDate = new Date();
     this.maxDate = new Date(
       this.maxDate.getFullYear() - 18,
       this.maxDate.getMonth(),
       this.maxDate.getDate()
     );
-    console.log(this.maxDate);
   }
   onSubmit(form: NgForm) {
     this.authService.registeredUser({
@@ -41,18 +39,5 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  addEvent(a, $event, f: NgForm, d) {
-    console.log(
-      JSON.stringify(a) +
-        " : " +
-        JSON.stringify($event.value) +
-        "\n" +
-        f.value.birthdate.valid +
-        "\n" +
-        d +
-        "\n" +
-        f.control.controls.birthdate.status + "\n" + 
-        JSON.stringify(f.control.controls.birthdate.errors)
-    );
-  }
+ 
 }
